@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Emotible.ViewModels
 {
-    internal interface IEmoteViewModel
+    public interface IEmoteViewModel
     {
         string Name { get; }
         string Text { get; }

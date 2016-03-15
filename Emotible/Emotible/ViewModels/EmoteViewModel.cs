@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Emotible.ViewModels
 {
-    internal class EmoteViewModel : BaseViewModel, IEmoteViewModel, ISizableControl
+    public class EmoteViewModel : BaseViewModel, IEmoteViewModel, ISizableControl
     {
         private string _name;
         private string _text;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Emotible.ViewModels
 {
-    internal interface ISizableControl
+    public interface ISizableControl
     {
         int Width { get; }
         int Height { get; }

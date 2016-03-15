@@ -3,6 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Emotible"
+    xmlns:viewModels="using:Emotible.ViewModels"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <viewModels:EmotibleViewModel x:Name="emotibleViewModel"
+                                      x:Key ="emotibleViewModel"></viewModels:EmotibleViewModel>
+    </Application.Resources>
 </Application>
