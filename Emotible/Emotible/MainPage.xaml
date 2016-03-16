@@ -11,27 +11,38 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <!--<CommandBar.PrimaryCommands>
-                <AppBarButton Label="Create Emote"></AppBarButton>
+            <!-- Placeholder buttons for reference and usability testing -->
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Label="Create Emote">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;"></FontIcon>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton Label="Filter Emotes">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE71C;"></FontIcon>
+                    </AppBarButton.Icon>
+                </AppBarButton>
             </CommandBar.PrimaryCommands>
-            <CommandBar.SecondaryCommands>
-                
-            </CommandBar.SecondaryCommands>-->
         </CommandBar>
     </Page.BottomAppBar>
-    
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <!--<views:WrappingGridCanvas/>-->
-        <ItemsControl ItemsSource="{Binding Emotes}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Border Background="Green"
-                            Width="80" Height="80">
-                        <TextBlock Foreground="White"
-                                   Text="{Binding Text}"></TextBlock>
-                    </Border>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled">
+            <!--<views:WrappingGridCanvas/>-->
+            <ItemsControl ItemsSource="{Binding Emotes}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <views:EmoteControl Text="{Binding Text}"
+                                            Width="{StaticResource GridSize}"
+                                            Height="{StaticResource GridSize}"
+                                            GridWidth="1"
+                                            GridHeight="1">
+                        </views:EmoteControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </Page>

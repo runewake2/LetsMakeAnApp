@@ -3,4 +3,4 @@ Lets Make An App is a series of projects designed to drive a balance between exp
 
 Each project is the result of suggestions from the community either here, from [Twitter](https://twitter.com/runewake2) or from [YouTube](https://www.youtube.com/channel/UCJKLCjeujQj-d3JjsbVtkJw). Certain other projects will be pulled from other sources as well at times to keep things interesting.
 
-Best of all, the development of these projects itself is intended to be done socially. Unlike most other tutorials and demo's Let's Make An App embrasses failure. Things will not always go as planned and, do to the social nature of the project, those failures will be quite public. The goal of this is to foster learning. Failing that, it ought to be hilarious... or just annoying.
+Best of all, the development of these projects itself is intended to be done socially. Unlike most other tutorials and demo's Let's Make An App embrasses failure. Things will not always go as planned and, due to the social nature of the project, those failures will be quite public. The goal of this is to foster learning. Failing that, it ought to be hilarious... or just annoying.

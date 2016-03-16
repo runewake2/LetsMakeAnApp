@@ -7,7 +7,16 @@
     RequestedTheme="Light">
 
     <Application.Resources>
-        <viewModels:EmotibleViewModel x:Name="emotibleViewModel"
+        <ResourceDictionary>
+            <!-- Create a single view model to handle application state. This will allow it to persist across page loads. -->
+            <viewModels:EmotibleViewModel x:Name="emotibleViewModel"
                                       x:Key ="emotibleViewModel"></viewModels:EmotibleViewModel>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <x:Double x:Key="GridSize">80</x:Double>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
