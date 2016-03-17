@@ -30,19 +30,26 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ScrollViewer VerticalScrollBarVisibility="Auto"
                       HorizontalScrollBarVisibility="Disabled">
-            <!--<views:WrappingGridCanvas/>-->
-            <ItemsControl ItemsSource="{Binding Emotes}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <views:EmoteControl Text="{Binding Text}"
-                                            Width="{StaticResource GridSize}"
-                                            Height="{StaticResource GridSize}"
-                                            GridWidth="1"
-                                            GridHeight="1">
-                        </views:EmoteControl>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <StackPanel Orientation="Vertical">
+                <!--<views:WrappingGridCanvas/>-->
+                <ItemsControl ItemsSource="{Binding Emotes}"
+                              Margin="3">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <views:EmoteControl Text="{Binding Text}"
+                                                Width="{StaticResource GridSize}"
+                                                Height="{StaticResource GridSize}"
+                                                GridWidth="1"
+                                                GridHeight="1"
+                                                Margin="3">
+                            </views:EmoteControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                
+                <TextBlock Text="60 Emotes Hidden by Filter" HorizontalAlignment="Center"
+                           Foreground="{ThemeResource SystemControlBackgroundBaseMediumBrush}"></TextBlock>
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Page>
