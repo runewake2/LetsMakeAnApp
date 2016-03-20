@@ -113,9 +113,6 @@
     <Compile Include="Views\EmoteControl.xaml.cs">
       <DependentUpon>EmoteControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WrappingGridCanvas.xaml.cs">
-      <DependentUpon>WrappingGridCanvas.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -143,10 +140,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\EmoteControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\WrappingGridCanvas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

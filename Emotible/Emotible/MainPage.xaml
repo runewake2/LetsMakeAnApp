@@ -31,22 +31,28 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto"
                       HorizontalScrollBarVisibility="Disabled">
             <StackPanel Orientation="Vertical">
-                <!--<views:WrappingGridCanvas/>-->
                 <ItemsControl ItemsSource="{Binding Emotes}"
-                              Margin="3">
+                              Margin="3"
+                              HorizontalAlignment="Center">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid Orientation="Horizontal">
+                            </VariableSizedWrapGrid>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <views:EmoteControl Text="{Binding Text}"
                                                 Width="{StaticResource GridSize}"
                                                 Height="{StaticResource GridSize}"
-                                                GridWidth="1"
-                                                GridHeight="1"
+                                                VariableSizedWrapGrid.ColumnSpan="{Binding ColumnSpan}"
+                                                VariableSizedWrapGrid.RowSpan="{Binding RowSpan}"
                                                 Margin="3">
                             </views:EmoteControl>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-                
+
                 <TextBlock Text="60 Emotes Hidden by Filter" HorizontalAlignment="Center"
                            Foreground="{ThemeResource SystemControlBackgroundBaseMediumBrush}"></TextBlock>
             </StackPanel>

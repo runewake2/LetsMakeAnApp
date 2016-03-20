@@ -14,7 +14,7 @@
 
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <x:Double x:Key="GridSize">80</x:Double>
+                    <x:Double x:Key="GridSize">76</x:Double>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

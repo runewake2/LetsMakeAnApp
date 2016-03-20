@@ -29,24 +29,6 @@ namespace Emotible.Views
             set { SetValue(TextProperty, value); }
         }
 
-        public static readonly DependencyProperty GridWidthProperty = DependencyProperty.Register(
-            nameof(GridWidth), typeof (int), typeof (EmoteControl), new PropertyMetadata(default(int)));
-
-        public int GridWidth
-        {
-            get { return (int) GetValue(GridWidthProperty); }
-            set { SetValue(GridWidthProperty, value); }
-        }
-
-        public static readonly DependencyProperty GridHeightProperty = DependencyProperty.Register(
-            nameof(GridHeight), typeof (int), typeof (EmoteControl), new PropertyMetadata(default(int)));
-
-        public int GridHeight
-        {
-            get { return (int) GetValue(GridHeightProperty); }
-            set { SetValue(GridHeightProperty, value); }
-        }
-
         public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
             nameof(Command), typeof (ICommand), typeof (EmoteControl), new PropertyMetadata(default(ICommand)));
 
@@ -59,6 +41,7 @@ namespace Emotible.Views
         public EmoteControl()
         {
             this.InitializeComponent();
+            TileEnterStoryboard.Begin();
         }
 
         private void InvokeCommand(object sender, TappedRoutedEventArgs e)

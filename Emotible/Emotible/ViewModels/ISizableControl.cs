@@ -8,7 +8,7 @@ namespace Emotible.ViewModels
 {
     public interface ISizableControl
     {
-        int Width { get; }
-        int Height { get; }
+        double Width { get; }
+        double Height { get; }
     }
 }

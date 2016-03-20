@@ -10,8 +10,10 @@ namespace Emotible.ViewModels
     {
         private string _name;
         private string _text;
-        private int _width;
-        private int _height;
+        private double _width;
+        private double _height;
+        private int _columnSpan;
+        private int _rowSpan;
 
         public string Name
         {
@@ -38,7 +40,7 @@ namespace Emotible.ViewModels
             }
         }
 
-        public int Width
+        public double Width
         {
             get { return _width; }
             set
@@ -51,7 +53,7 @@ namespace Emotible.ViewModels
             }
         }
 
-        public int Height
+        public double Height
         {
             get { return _height; }
             set
@@ -59,6 +61,32 @@ namespace Emotible.ViewModels
                 if (_height != value)
                 {
                     _height = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public int ColumnSpan
+        {
+            get { return _columnSpan; }
+            set
+            {
+                if (_columnSpan != value)
+                {
+                    _columnSpan = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public int RowSpan
+        {
+            get { return _rowSpan; }
+            set
+            {
+                if (_rowSpan != value)
+                {
+                    _rowSpan = value;
                     NotifyPropertyChanged();
                 }
             }
