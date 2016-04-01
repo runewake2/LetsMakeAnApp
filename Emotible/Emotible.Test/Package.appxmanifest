@@ -5,11 +5,11 @@
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   IgnorableNamespaces="uap mp">
 
-  <Identity Name="42908488-fe5b-4a28-b831-5cb02e075253"
+  <Identity Name="0cad0fa5-835b-443a-ae17-fc16d8a483b4"
             Publisher="CN=runew_000"
             Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="42908488-fe5b-4a28-b831-5cb02e075253" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="0cad0fa5-835b-443a-ae17-fc16d8a483b4" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Emotible.Test</DisplayName>

@@ -100,6 +100,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Color\ColorHue.cs" />
+    <Compile Include="Color\MathExtensions.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -112,6 +114,9 @@
     <Compile Include="ViewModels\ISizableControl.cs" />
     <Compile Include="Views\EmoteControl.xaml.cs">
       <DependentUpon>EmoteControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FilterEmotesControl.xaml.cs">
+      <DependentUpon>FilterEmotesControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +145,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\EmoteControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FilterEmotesControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
