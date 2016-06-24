@@ -8,7 +8,13 @@ namespace Emotible.ViewModels
 {
     public interface IEmoteViewModel
     {
+        int Id { get; }
         string Name { get; }
         string Text { get; }
+        double Width { get; }
+        double Height { get; }
+        int ColumnSpan { get; }
+        int RowSpan { get; }
+        int TimesUsed { get; }
     }
 }

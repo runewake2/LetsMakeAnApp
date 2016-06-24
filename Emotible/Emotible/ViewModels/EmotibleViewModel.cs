@@ -4,19 +4,17 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Core;
+using Emotible.Layout;
+using Emotible.Model;
 
 namespace Emotible.ViewModels
 {
     public class EmotibleViewModel : BaseViewModel
     {
-        private ObservableCollection<IEmoteViewModel> _emotes = new ObservableCollection<IEmoteViewModel>(new EmoteViewModel[] {
-            new EmoteViewModel() { Height = 1, Width = 1, Name = "Huzzah", Text = "Foo" },
-            new EmoteViewModel() { Height = 1, Width = 1, Name = "Huzzah", Text = "Foo" },
-            new EmoteViewModel() { Height = 1, Width = 1, Name = "Huzzah", Text = "Foo" },
-            new EmoteViewModel() { Height = 1, Width = 1, Name = "Huzzah", Text = "Foo" },
-            new EmoteViewModel() { Height = 1, Width = 1, Name = "Huzzah", Text = "Foo" },
-            new EmoteViewModel() { Height = 1, Width = 1, Name = "Huzzah", Text = "Foo" }
-        });
+        private LayoutController controller = new LayoutController();
+
+        private ObservableCollection<IEmoteViewModel> _emotes = new ObservableCollection<IEmoteViewModel>();
 
         public ObservableCollection<IEmoteViewModel> Emotes
         {
@@ -29,6 +27,45 @@ namespace Emotible.ViewModels
                     NotifyPropertyChanged();
                 }
             }
+        }
+
+        private int _columns;
+
+        public int Columns
+        {
+            get { return _columns; }
+            set {
+                if (_columns != value)
+                {
+                    _columns = value;
+                    UpdateEmotesAsync();
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private double _width;
+
+        public double Width
+        {
+            get { return _width; }
+            set
+            {
+                if (_width != value)
+                {
+                    _width = value;
+                    var gridSize = (double)App.Current.Resources["GridSize"];
+                    Columns = (int)Math.Floor(_width / gridSize);
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        public void UpdateEmotesAsync()
+        {
+            var updatedLayout = controller.BuildCollection();
+
+                    Emotes = updatedLayout;
         }
     }
 }

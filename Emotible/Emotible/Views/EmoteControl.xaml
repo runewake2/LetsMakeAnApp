@@ -8,7 +8,8 @@
     mc:Ignorable="d"
     d:DesignHeight="80"
     d:DesignWidth="80"
-    Tapped="InvokeCommand">
+    VerticalAlignment="Stretch"
+    HorizontalAlignment="Stretch">
     
     <UserControl.Resources>
         <Storyboard x:Name="TileEnterStoryboard">
@@ -26,11 +27,16 @@
         <PlaneProjection/>
     </UserControl.Projection>
 
-    <Border Background="{ThemeResource SystemControlBackgroundAccentBrush}">
-        <TextBlock Text=":D"
-                   FontSize="28"
+    <Button Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            Command="{Binding Command}"
+            CommandParameter="{Binding Text}">
+        <TextBlock x:Name="emoteText"
+                   Text="{Binding Text}"
+                   FontSize="18"
                    Foreground="White"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"></TextBlock>
-    </Border>
+    </Button>
 </UserControl>

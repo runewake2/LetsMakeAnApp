@@ -44,12 +44,11 @@ namespace Emotible.Views
             TileEnterStoryboard.Begin();
         }
 
-        private void InvokeCommand(object sender, TappedRoutedEventArgs e)
+        public Size MeasureString(string text)
         {
-            if (Command != null && Command.CanExecute(this))
-            {
-                Command.Execute(this);
-            }
+            emoteText.Text = text;
+            emoteText.Measure(Size.Empty);
+            return new Size(emoteText.ActualWidth, emoteText.ActualHeight);
         }
     }
 }

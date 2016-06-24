@@ -18,44 +18,67 @@
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;"></FontIcon>
                     </AppBarButton.Icon>
                 </AppBarButton>
-                <AppBarButton Label="Filter Emotes">
-                    <AppBarButton.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE71C;"></FontIcon>
-                    </AppBarButton.Icon>
-                </AppBarButton>
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+          ScrollViewer.VerticalScrollBarVisibility="Disabled"
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <!-- A hidden element used to measure other elements. Creating it here prevents needing to create ne  -->
+        <views:EmoteControl x:Name="measuringElement"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Opacity="0"></views:EmoteControl>
+
         <ScrollViewer VerticalScrollBarVisibility="Auto"
                       HorizontalScrollBarVisibility="Disabled">
-            <StackPanel Orientation="Vertical">
-                <ItemsControl ItemsSource="{Binding Emotes}"
-                              Margin="3"
-                              HorizontalAlignment="Center">
-                    <ItemsControl.ItemsPanel>
+            <StackPanel Orientation="Vertical"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <TextBlock Margin="6,0,0,0" Text="Emotible"
+                           FontSize="{ThemeResource TextStyleExtraLargeFontSize}"></TextBlock>
+                <views:VariableSizedGrid ItemsSource="{Binding Emotes}"
+                                         SizeChanged="GridResized"
+                                         Margin="3"
+                                         Padding="0"
+                                         HorizontalAlignment="Center"
+                                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                         MaxWidth="{StaticResource MaximumGridSize}">
+                    <GridView.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <VariableSizedWrapGrid Orientation="Horizontal">
+                            <VariableSizedWrapGrid Orientation="Horizontal"
+                                                   ItemWidth="{ThemeResource GridSize}"
+                                                   ItemHeight="{ThemeResource GridSize}"
+                                                   ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                             </VariableSizedWrapGrid>
                         </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemTemplate>
                         <DataTemplate>
-                            <views:EmoteControl Text="{Binding Text}"
-                                                Width="{StaticResource GridSize}"
-                                                Height="{StaticResource GridSize}"
+                            <views:EmoteControl DataContext="{Binding}"
+                                                Text="{Binding Text}"
+                                                Command="{Binding Command}"
                                                 VariableSizedWrapGrid.ColumnSpan="{Binding ColumnSpan}"
                                                 VariableSizedWrapGrid.RowSpan="{Binding RowSpan}"
                                                 Margin="3">
                             </views:EmoteControl>
                         </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-
-                <TextBlock Text="60 Emotes Hidden by Filter" HorizontalAlignment="Center"
-                           Foreground="{ThemeResource SystemControlBackgroundBaseMediumBrush}"></TextBlock>
+                    </GridView.ItemTemplate>
+                </views:VariableSizedGrid>
             </StackPanel>
         </ScrollViewer>
+
+        <Rectangle VerticalAlignment="Top" Height="16"
+                   IsHitTestVisible="False">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="{ThemeResource SystemAltHighColor}" Offset="0"/>
+                    <GradientStop Color="{ThemeResource SystemAltLowColor}" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
     </Grid>
 </Page>
