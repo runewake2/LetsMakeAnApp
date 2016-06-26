@@ -38,8 +38,8 @@ namespace Emotible.ViewModels
                 if (_columns != value)
                 {
                     _columns = value;
-                    UpdateEmotesAsync();
                     NotifyPropertyChanged();
+                    UpdateEmotesAsync();
                 }
             }
         }
